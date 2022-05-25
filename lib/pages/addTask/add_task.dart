@@ -29,29 +29,59 @@ class _AddTaskState extends State<AddTask> {
               children: [
                 Row(
                   children: [
-                    ButtonCollorSelectorWidget(
-                      color: Colors.amber,
-                      isPressed: colorNumber == 0 ? true : false,
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        colorNumber = 0;
+                      }),
+                      child: ContainerCollorSelectorWidget(
+                        color: Colors.amber,
+                        isPressed: colorNumber == 0 ? true : false,
+                      ),
                     ),
-                    ButtonCollorSelectorWidget(
-                      color: Colors.lime,
-                      isPressed: colorNumber == 1 ? true : false,
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        colorNumber = 1;
+                      }),
+                      child: ContainerCollorSelectorWidget(
+                        color: Colors.lime,
+                        isPressed: colorNumber == 1 ? true : false,
+                      ),
                     ),
-                    ButtonCollorSelectorWidget(
-                      color: Colors.cyan,
-                      isPressed: colorNumber == 2 ? true : false,
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        colorNumber = 2;
+                      }),
+                      child: ContainerCollorSelectorWidget(
+                        color: Colors.cyan,
+                        isPressed: colorNumber == 2 ? true : false,
+                      ),
                     ),
-                    ButtonCollorSelectorWidget(
-                      color: Colors.purple,
-                      isPressed: colorNumber == 3 ? true : false,
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        colorNumber = 3;
+                      }),
+                      child: ContainerCollorSelectorWidget(
+                        color: Colors.purple,
+                        isPressed: colorNumber == 3 ? true : false,
+                      ),
                     ),
-                    ButtonCollorSelectorWidget(
-                      color: Colors.pink,
-                      isPressed: colorNumber == 4 ? true : false,
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        colorNumber = 4;
+                      }),
+                      child: ContainerCollorSelectorWidget(
+                        color: Colors.pink,
+                        isPressed: colorNumber == 4 ? true : false,
+                      ),
                     ),
-                    ButtonCollorSelectorWidget(
-                      color: Colors.orange,
-                      isPressed: colorNumber == 5 ? true : false,
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        colorNumber = 5;
+                      }),
+                      child: ContainerCollorSelectorWidget(
+                        color: Colors.orange,
+                        isPressed: colorNumber == 5 ? true : false,
+                      ),
                     ),
                   ],
                 ),
@@ -107,8 +137,8 @@ class _AddTaskState extends State<AddTask> {
   }
 }
 
-class ButtonCollorSelectorWidget extends StatelessWidget {
-  const ButtonCollorSelectorWidget({
+class ContainerCollorSelectorWidget extends StatelessWidget {
+  const ContainerCollorSelectorWidget({
     Key? key,
     required this.color,
     required this.isPressed,
@@ -119,23 +149,21 @@ class ButtonCollorSelectorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-        width: 24,
-        height: 24,
-        margin: const EdgeInsets.only(right: 12),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Center(
-          child: Container(
-            height: 18,
-            width: 18,
-            decoration: BoxDecoration(
-              color: isPressed ? Colors.white : Colors.transparent,
-              borderRadius: BorderRadius.circular(15),
-            ),
+    return Container(
+      width: 24,
+      height: 24,
+      margin: const EdgeInsets.only(right: 12),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Center(
+        child: Container(
+          height: 18,
+          width: 18,
+          decoration: BoxDecoration(
+            color: isPressed ? Colors.white : Colors.transparent,
+            borderRadius: BorderRadius.circular(15),
           ),
         ),
       ),

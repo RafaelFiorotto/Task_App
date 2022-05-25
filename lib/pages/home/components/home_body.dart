@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_test/pages/addTask/add_task.dart';
 import 'package:provider_test/pages/home/components/widgets/task_container_widget.dart';
 import 'package:provider_test/pages/home/components/widgets/topics_container_widget.dart';
 
@@ -129,7 +130,14 @@ class _HomeBodyState extends State<HomeBody> {
                       alignment: Alignment.bottomCenter,
                       child: InkWell(
                         splashColor: Colors.transparent,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) =>
+                                  const AddTask(),
+                            ),
+                          );
+                        },
                         child: Container(
                           height: 42,
                           decoration: BoxDecoration(
