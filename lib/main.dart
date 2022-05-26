@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider_test/pages/addTask/add_task.dart';
 import 'package:provider_test/pages/home/home_page.dart';
 
 void main() {

@@ -11,11 +11,30 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  final pageController = PageController(initialPage: 0, keepPage: true);
+  final pageController = PageController(initialPage: 1);
   int pageIndex = 0;
   bool container1Checked = false;
   bool container2Checked = false;
   bool container3Checked = false;
+
+  var taskList = [
+    {
+      'id': 1,
+      'title': 'Update my workspace',
+      'color': Colors.lime,
+    },
+    {
+      'id': 2,
+      'title': 'Estudar provider no flutter',
+      'color': Colors.amber,
+    },
+    {
+      'id': 3,
+      'title':
+          'Fazer update no sia, juntamente com o back, adicionar os filtros nas abas de laudo',
+      'color': 0xFF00BCD4,
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +59,9 @@ class _HomeBodyState extends State<HomeBody> {
               children: [
                 GestureDetector(
                   onTap: () {
+                    pageController.animateToPage(0,
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeIn);
                     setState(() {
                       pageIndex = 0;
                     });
@@ -52,6 +74,9 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
                 GestureDetector(
                   onTap: () {
+                    pageController.animateToPage(1,
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeIn);
                     setState(() {
                       pageIndex = 1;
                     });
@@ -64,6 +89,9 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
                 GestureDetector(
                   onTap: () {
+                    pageController.animateToPage(2,
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeIn);
                     setState(() {
                       pageIndex = 2;
                     });
@@ -80,6 +108,11 @@ class _HomeBodyState extends State<HomeBody> {
           Expanded(
             child: PageView(
               controller: pageController,
+              onPageChanged: (value) {
+                setState(() {
+                  pageIndex = value;
+                });
+              },
               children: [
                 Stack(
                   children: [
@@ -164,7 +197,21 @@ class _HomeBodyState extends State<HomeBody> {
                       ),
                     ),
                   ],
-                )
+                ),
+                ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: taskList.length,
+                  itemBuilder: (context, index) {
+                    var item = taskList[index];
+                    return TaskContainerWidget(
+                      key: ValueKey(item['id']),
+                      title: item['title'].toString(),
+                      containerChecked: true,
+                      color: Colors.red,
+                    );
+                  },
+                ),
               ],
             ),
           )
