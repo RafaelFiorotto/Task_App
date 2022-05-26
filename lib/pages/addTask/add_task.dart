@@ -95,7 +95,7 @@ class _AddTaskState extends State<AddTask> {
                 ),
                 TextFormField(
                   minLines: 1,
-                  maxLines: 12,
+                  maxLines: 3,
                   keyboardType: TextInputType.multiline,
                   decoration: const InputDecoration(
                     hintText: 'Text description here',

@@ -19,7 +19,7 @@ class TopicContainerWidget extends StatelessWidget {
       height: 26,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: pageIndex == page ? Colors.black : Colors.white,
+        color: pageIndex == page ? Colors.black : Colors.transparent,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Center(
