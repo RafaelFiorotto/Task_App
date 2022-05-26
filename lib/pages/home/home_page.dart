@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 splashColor: Colors.transparent,
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.menu_outlined,
+                  Icons.pages_sharp,
                   color: Colors.white,
                 )),
           ),

@@ -20,20 +20,23 @@ class _HomeBodyState extends State<HomeBody> {
   var taskList = [
     {
       'id': 1,
-      'title': 'Update my workspace',
-      'color': Colors.lime,
-    },
-    {
-      'id': 2,
-      'title': 'Estudar provider no flutter',
-      'color': Colors.amber,
-    },
-    {
-      'id': 3,
       'title':
           'Fazer update no sia, juntamente com o back, adicionar os filtros nas abas de laudo',
       'color': 0xFF00BCD4,
-    }
+      'checked': false,
+    },
+    {
+      'id': 2,
+      'title': 'Update my workspace',
+      'color': 0xFFCDDC39,
+      'checked': false,
+    },
+    {
+      'id': 3,
+      'title': 'Estudar provider no flutter',
+      'color': 0xFFFFC107,
+      'checked': true,
+    },
   ];
 
   @override
@@ -207,8 +210,8 @@ class _HomeBodyState extends State<HomeBody> {
                     return TaskContainerWidget(
                       key: ValueKey(item['id']),
                       title: item['title'].toString(),
-                      containerChecked: true,
-                      color: Colors.red,
+                      containerChecked: false,
+                      color: Color(item['color'].hashCode),
                     );
                   },
                 ),
